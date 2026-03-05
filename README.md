@@ -5,13 +5,17 @@ Frontend:
 -	React.js
 -	Material UI
 -	Axios
+
 Backend:
 -	Node.js
 -	Express.js
+
 Database:
 -	MongoDB Atlas
+
 Authentication:
 -	JWT (JSON Web Token)
 -	bcrypt for password hashing
+
 Version Control:
 -	Git and GitHub
