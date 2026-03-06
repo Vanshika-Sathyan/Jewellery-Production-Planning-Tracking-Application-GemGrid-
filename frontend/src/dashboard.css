@@ -1,0 +1,113 @@
+/* GLOBAL FONT */
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* HEADER FONT */
+
+.MuiToolbar-root h5{
+  font-size:26px;
+  font: weight 550px;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+
+body{
+  background: linear-gradient(180deg,#ecfbfc 0%,#ece9f6 100%);
+  font-family: Montserrat, Arial, sans-serif;
+  margin:0;
+}
+/* TABLE ROW HOVER EFFECT */
+
+.orders-table tbody tr{
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.orders-table tbody tr:hover{
+  background:#f7f9fc;
+  transform: scale(1.002);
+}
+
+/* BUTTON INTERACTION */
+
+button{
+  transition: all 0.2s ease !important;
+}
+
+button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+button:active{
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+
+/* DASHBOARD FADE-IN ANIMATION */
+
+.dashboard-wrapper{
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform: translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* PIPELINE TRACKER */
+
+.pipeline-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.pipeline-stage{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  background:#edf2f7;
+  color:#4a5568;
+  transition: all 0.2s ease;
+}
+
+.pipeline-stage:hover{
+  background:#e2e8f0;
+}
+
+.pipeline-complete{
+  background:#38a169;
+  color:white;
+}
+
+.pipeline-current{
+  background:#3182ce;
+  color:white;
+  font-weight:500;
+}
+
+
+/* CARD HOVER FEEL */
+
+.glass-card{
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
