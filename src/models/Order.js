@@ -1,48 +1,50 @@
 const mongoose = require("mongoose");
 
-const orderSchema = new mongoose.Schema(
-  {
-    orderNumber: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    grams: {
-      type: Number,
-      required: true,
-    },
-    stones: {
-      type: Number,
-      required: true,
-    },
-    productType: {
-      type: String,
-      required: true,
-    },
-    priority: {
-      type: String,
-      enum: ["LOW", "MEDIUM", "HIGH"],
-      default: "MEDIUM",
-    },
-    shipDate: {
-      type: Date,
-      required: true,
-    },
-    currentStage: {
-      type: String,
-      required: true,
-    },
-    currentStageEntryTime: {
-      type: Date,
-      required: true,
-    },
-    status: {
-      type: String,
-      enum: ["IN_PROGRESS", "COMPLETED"],
-      default: "IN_PROGRESS",
-    },
-  },
-  { timestamps: true }
-);
+const StageHistorySchema = new mongoose.Schema({
+  stageName: String,
+  entryTime: Date,
+  exitTime: Date,
+  hoursSpent: Number
+});
 
-module.exports = mongoose.model("Order", orderSchema);
+const OrderSchema = new mongoose.Schema({
+
+  orderNumber: String,
+
+  grams: Number,
+
+  stones: Number,
+
+  productType: String,
+
+  priority: String,
+
+  shipDate: Date,
+
+  cell: String,
+
+  currentStage: {
+    type: String,
+    default: "Order Created"
+  },
+
+  currentStageEntryTime: {
+    type: Date,
+    default: Date.now
+  },
+
+  stageHistory: [StageHistorySchema],
+
+  isDelayed: {
+    type: Boolean,
+    default: false
+  },
+
+  status: {
+    type: String,
+    default: "IN_PROGRESS"
+  }
+
+}, { timestamps: true });
+
+module.exports = mongoose.model("Order", OrderSchema);

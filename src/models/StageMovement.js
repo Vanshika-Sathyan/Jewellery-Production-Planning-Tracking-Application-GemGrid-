@@ -1,28 +1,20 @@
 const mongoose = require("mongoose");
 
-const stageMovementSchema = new mongoose.Schema(
-  {
-    orderId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-      required: true,
-    },
-    stageName: {
-      type: String,
-      required: true,
-    },
-    entryTime: {
-      type: Date,
-      required: true,
-    },
-    exitTime: {
-      type: Date,
-    },
-    durationHours: {
-      type: Number,
-    },
-  },
-  { timestamps: true }
-);
+const StageMovementSchema = new mongoose.Schema({
 
-module.exports = mongoose.model("StageMovement", stageMovementSchema);
+  orderId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Order"
+  },
+
+  stageName: String,
+
+  entryTime: Date,
+
+  exitTime: Date,
+
+  hoursSpent: Number
+
+});
+
+module.exports = mongoose.model("StageMovement", StageMovementSchema);
